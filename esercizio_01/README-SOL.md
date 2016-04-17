@@ -1,37 +1,28 @@
-Soluzioni
-===================
+#Soluzioni
 
----- alfa.f(null, gamma)
+- `alfa.f(null, gamma)`
+  * `f(A a, B b)`
+  * `f(B b, C c)`
 
-FIRME CANDIDATE
-f(A a, B b)
-f(B b, C c)
+**Output**: `1`
 
-OUTPUT: 1
+- beta.f(gamma, gamma)
+  * `f(A a, B b)`
+  * `f(C c, B b)`
+  * `f(C c, Object x)`
+  * `f(B b, C c)`
 
----- beta.f(gamma, gamma)
+**Output**: * *Errore a tempo di compilazione (firme ambigue).* *
 
-FIRME CANDIDATE
-f(A a, B b)
-f(C c, B b)
-f(C c, Object x)
-f(B b, C c)
+- beta.f(gamma, alfa)
+  * `f(C c, Object x)`
 
-OUTPUT: Errore a tempo di compilazione (firme ambigue)
+**Output**: `4`
 
----- beta.f(gamma, alfa)
+- gamma.f(beta, beta)
+  * `f(A a, B b)`
 
-FIRME CANDIDATE
-f(C c, Object x)
+**Output**: `6`
 
-OUTPUT: 4
-
----- gamma.f(beta, beta)
-
-FIRME CANDIDATE
-f(A a, B b)
-
-OUTPUT: 6
-
----- System.out.println(1 + "1")
-"11"
+- System.out.println(1 + "1")
+**Output**: `11`
