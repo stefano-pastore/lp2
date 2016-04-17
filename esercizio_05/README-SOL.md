@@ -19,4 +19,4 @@
 **Output**: `B1: C2`
 
 - `y.f(y, null)`
-  *`f(A x, B y)`
+  * `f(A x, B y)`
