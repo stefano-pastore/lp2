@@ -1,4 +1,4 @@
-class MyString
+class MyString implements Cloneable
 {
 	private String s;
 
@@ -15,7 +15,16 @@ class MyString
 	public MyString clone()
 	{
 		MyString str = null;
-		str = new MyString(this.toString());
+
+		try
+		{
+			str = (MyString) super.clone();
+		}
+		catch (CloneNotSupportedException e)
+		{
+			System.err.println(e.getMessage());
+		}
+
 		return str;
 	}
 
