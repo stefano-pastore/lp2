@@ -1,6 +1,6 @@
 class MyString implements Cloneable
 {
-	private String s;
+	private final String s;
 
 	public MyString(String s)
 	{
@@ -14,7 +14,7 @@ class MyString implements Cloneable
 	@Override 
 	public MyString clone()
 	{
-		MyString str = null;
+		MyString str;
 
 		try
 		{
@@ -22,7 +22,7 @@ class MyString implements Cloneable
 		}
 		catch (CloneNotSupportedException e)
 		{
-			System.err.println(e.getMessage());
+			throw new AssertionError();
 		}
 
 		return str;
