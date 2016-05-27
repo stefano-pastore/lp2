@@ -1,12 +1,12 @@
 import java.util.Set;
 import java.util.Iterator;
 
-class RunOnSet extends Thread
+class RunOnSet<T> extends Thread
 {
-	private RunnableWithArg<Integer> runnable;
-	private Set<Integer> set;
+	private final RunnableWithArg<T> runnable;
+	private final Set<? extends T> set;
 
-	public RunOnSet(RunnableWithArg<Integer> r, Set<Integer> s)
+	public RunOnSet(RunnableWithArg<T> r, Set<? extends T> s)
 	{
 		runnable = r;
 		set = s;
@@ -14,11 +14,11 @@ class RunOnSet extends Thread
 
 	public void run()
 	{
-		Iterator<Integer> iterator = set.iterator();
+		Iterator<? extends T> iterator = set.iterator();
 
 		while (iterator.hasNext())
 		{
-			Integer n = iterator.next();
+			final T n = iterator.next();
 
 			new Thread() {
 
