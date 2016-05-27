@@ -17,7 +17,7 @@ class Test
 			}
 		};
 
-		Thread t = new RunOnSet(r,s);
+		Thread t = new RunOnSet<Integer>(r,s);
 		t.start();
 	}
 }
