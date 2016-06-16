@@ -1,19 +1,19 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 class Person
 {
 	private final String name;
-	private final List<Person> friends;
-	private final List<Person> enemies;
+	private final Set<Person> friends;
+	private final Set<Person> enemies;
 
 	public Person(String n)
 	{
 		name = n;
-		friends = new ArrayList<Person>();
-		enemies = new ArrayList<Person>();
+		friends = new HashSet<Person>();
+		enemies = new HashSet<Person>();
 	}
 
 	public void addEnemy(Person p)
@@ -37,12 +37,12 @@ class Person
 		return name;
 	}
 
-	protected List<? extends Person> getFriends()
+	protected Set<? extends Person> getFriends()
 	{
 		return friends;
 	}
 
-	protected List<? extends Person> getEnemies()
+	protected Set<? extends Person> getEnemies()
 	{
 		return enemies;
 	}
