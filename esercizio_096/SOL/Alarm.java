@@ -1,4 +1,4 @@
-class Alarm extends Thread
+class Alarm
 {
 	private boolean onGoingAnomaly;
 	private Integer alarmTimeout;
