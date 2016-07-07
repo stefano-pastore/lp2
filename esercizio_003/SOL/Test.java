@@ -22,7 +22,7 @@ class Test
 
 		for (Integer n : y)
 		{
-			System.out.println(n + " ");
+			System.out.println(n);
 		}
 	}
 
