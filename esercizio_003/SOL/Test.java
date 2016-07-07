@@ -20,12 +20,10 @@ class Test
 
 		Set<Integer> y = concurrentFilter(x, oddSelector);
 
-		System.out.print("Elements: ");
 		for (Integer n : y)
 		{
-			System.out.print(n + " ");
+			System.out.println(n + " ");
 		}
-
 	}
 
 	public static <T, S extends T> Set<S> concurrentFilter(Set<S> set, Selector<T> selector)
@@ -36,18 +34,13 @@ class Test
 		{
 			final S next_element = setIterator.next();
 
-			Thread t = new Thread() {
+			Thread t = new Thread() 
+			{
 				public void run()
 				{
-					System.out.println("Thread #" + this.getId() + " has been launched");
-
-					synchronized (filteredSet)
+					if (selector.select(next_element))
 					{
-						if (selector.select(next_element))
-						{
-							System.out.println("The element " + next_element + " has been selected.");
-							filteredSet.add(next_element);
-						}
+						filteredSet.add(next_element);
 					}
 				}
 
@@ -56,8 +49,7 @@ class Test
 			try
 			{
 				t.join();
-			} 
-			catch (InterruptedException e)
+			} catch (InterruptedException e)
 			{
 
 				e.printStackTrace();
