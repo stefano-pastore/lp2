@@ -31,18 +31,18 @@ Una possibile implementazione potrebbe essere quella mostrata di seguito. Uno de
 
 ```java
 public static List<?> listIntersection(List<?> l, Set<?> s)
+{
+	List<Object> list = new ArrayList<Object>();
+	
+	for (Object x : l)
 	{
-		List<Object> list = new ArrayList<Object>();
-		
-		for (Object x : l)
+		if (s.contains(x))
 		{
-			if (s.contains(x))
-			{
-				list.add(x);
-			}
+			list.add(x);
 		}
-		return list;	
 	}
+	return list;	
+}
 ```
 
 #### Firma 2
